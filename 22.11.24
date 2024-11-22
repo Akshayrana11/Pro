@@ -4,23 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    to
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <Leight="match_parent"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="92dp"
-            android:text="CONNECT TO DATABASE" />
-
-    </LinearLayout>
-
-</RelativeLayout>
+            android:id="
 
 
 package com.example.printtable;
@@ -34,19 +25,17 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button b;
     SQLiteDatabase db;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Ovele savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        b=findViewById(R.id.button);
+    R.id.button);
 
-   db = openOrCreateDatabase("VisitorDb", MODE_PRIVATE, null);
-        db.execSQL("create table if not exists entry (visitor_name varchar(20) not null, gender varchar(20),contact int,purpose varchar(20),tomeet varchar(20))");
+   db = openOrCreateDatabase("Visitor table if not exists entry (visitor_name varchar(20) not null, gender varchar(20),contact int,purpose varchar(20),tomeet varchar(20))");
 
-        b.setOnClickListener(new View.OnClickListener() {
+    tener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"DATABASE CREATED...!!",Toast.LENGTH_LONG).show();
+        onClick(View view) {
+                Toasxt(MainActivity.this,"DATABASE CREATED...!!",Toast.LENGTH_LONG).show();
             }
         });
     }
