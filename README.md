@@ -1,58 +1,49 @@
-# Pro
-package com.example.sharedpreferences;
 
-import androidx.appcompat.app.AppCompatActivity;
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".insert">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:ems="10"
+            android:hint="ENTER USERNAME"
+            android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:ems="10"
+            android:hint="ENTER PASSWORD"
+            android:inputType="textPassword" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:text="REGISTER" />
+    </LinearLayout>
+</RelativeLayout>
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    EditText e1,e2,e3;
-    Button b;
-    public static final String MyPrefrences="myprefs";
-    public static final String name="namekey";
-    public static final String phone="phonekey";
-    public static final String email="emailkey";
-    SharedPreferences sharedPreferences;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        e1=(EditText)findViewById(R.id.editText);
-        e2=(EditText)findViewById(R.id.editText2);
-        e3=(EditText)findViewById(R.id.editText3);
-        b=(Button)findViewById(R.id.button);
+package com.example.arrayadapter;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.widget.ArrayAdapter; import android.widget.ListView;
 
-        sharedPreferences=getSharedPreferences(MyPrefrences,
-                Context.MODE_PRIVATE);
-        if (sharedPreferences.contains(name)) {
-            e1.setText(sharedPreferences.getString(name,""));
-        }
-        if (sharedPreferences.contains(phone)) {
-            e2.setText(sharedPreferences.getString(phone,""));
-        }
-        if (sharedPreferences.contains(email)) {
-            e3.setText(sharedPreferences.getString(email,""));
-        }
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String n = e1.getText().toString();
-                String ph = e2.getText().toString();
-                String e = e3.getText().toString();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(name,n);
-                editor.putString(phone,ph);
-                editor.putString(email,e);
-                editor.commit();
-Toast.makeText(MainActivity.this,"Thanks for saving Data...!!",Toast.LENGTH_LONG).show();
+public class MainActivity extends AppCompatActivity { ListView s1;
 
-            }
-        });
-    }
+
+@Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); s1=findViewById(R.id.l1);
+ 
+String courselist[]={"C-programming","Python","ANDROID","DBMS"};
+ArrayAdapter<String> ad=new ArrayAdapter<String>(this,R.layout.item_view,R.id.t1,courselist); s1.setAdapter(ad);
+}
 }
